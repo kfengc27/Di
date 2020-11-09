@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<h5>Example</h5>
+<div class="range-slider">
+    <label for="vol" style="padding-right:20px">3 + 5 = </label>
+
+    <input id='vol' name='num1' style="width:80%" type="range" value="0" min="0" max="100" oninput="num.value = this.value">
+    <output id="num">0</output>
+</div>
+<br>
+<div class="d-flex bd-highlight mb-3">
+    <div class="p-2 bd-highlight"></div>
+    <div class="p-2 bd-highlight"></div>
+    <div class="ml-auto p-2 bd-highlight">
+        <button class="otree-btn-next btn btn-primary">Submit</button></div>
+</div>
+
+
+{% endblock %}
+
