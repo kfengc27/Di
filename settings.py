@@ -2,11 +2,18 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-    name='Survey',
-    display_name="Survey",
+    name='Default-Survey',
+    display_name="Default-Survey",
     num_demo_participants=3,
     app_sequence=['survey']
     ),
+    dict(
+        name='Pilot Test For MTurk',
+        display_name="Pilot Test For MTurk",
+        num_demo_participants=40,
+        app_sequence=['pilot']
+    ),
+
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs

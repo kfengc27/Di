@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<h5>Quiz</h5>
+
+<p>To make sure that you fully understand the experiment, please answer the following questions.</p>
+
+{% formfields %}
+
+<div class="d-flex bd-highlight mb-3">
+    <div class="p-2 bd-highlight"></div>
+    <div class="p-2 bd-highlight"></div>
+    <div class="ml-auto p-2 bd-highlight">
+        <button class="otree-btn-next btn btn-primary">Submit</button></div>
+</div>
+
+
+{% endblock %}
+<script>
+function checkResult(){
+
+}
+</script>

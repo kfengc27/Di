@@ -1,0 +1,68 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<style>
+input {
+  width: 200px;
+  background-color: #fcfcfc;
+  border:0;
+  border-bottom:2px solid lightgrey;;
+  padding: 10px;
+}
+</style>
+<p>You have completed period 3. Please review the information below and when you are ready, press the continue button to proceed to the next period.</p>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Number of seconds spent on the slider task in Period 3</th>
+      <th scope="col">Cumulative number of seconds spent on the slider task in Period 2 and 3</th>
+        <th scope="col">Number of sliders correctly solved in Period 3</th>
+        <th scope="col">Cumulative number of sliders correctly solved in Period 2 and 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">You</th>
+      <td></td>
+      <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Your group member</th>
+      <td></td>
+      <td></td>
+         <td></td>
+         <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Total</th>
+      <td></td>
+      <td></td>
+         <td></td>
+         <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex bd-highlight mb-3">
+    <div class="p-2 bd-highlight"></div>
+    <div class="p-2 bd-highlight"></div>
+    <div class="ml-auto p-2 bd-highlight">
+        <button class="otree-btn-next btn btn-primary">Continue</button></div>
+</div>
+
+
+{% endblock %}
+<script>
+function checkResult(){
+
+}
+</script>
