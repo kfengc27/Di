@@ -104,4 +104,4 @@ class Page29(Page):
 class Final(Page):
     pass
 
-page_sequence = [MyPage, Instruction, Example,Train, Slide5, Slide6, Slide7, Slide8, Slide8_1, Slide9, Slide13, Slide14, Slide16, Slide17, Slide18, Slide19, Slide20, Slide21, Slide23, Slide24, Slide25, Slide27, Page28, Page29, Final]
+page_sequence = [MyPage, Final]

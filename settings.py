@@ -2,13 +2,13 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-    name='Default-Survey',
+    name='Default_Survey',
     display_name="Default-Survey",
     num_demo_participants=3,
     app_sequence=['survey']
     ),
     dict(
-        name='Pilot Test For MTurk',
+        name='Pilot_Test_For_MTurk',
         display_name="Pilot Test For MTurk",
         num_demo_participants=40,
         app_sequence=['pilot']
