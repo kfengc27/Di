@@ -1,0 +1,104 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+
+{% endblock %}
+
+{% block scripts %}
+<style>
+  {% include 'style/wicked.css' %}
+  {% include 'style/circle.css' %}
+</style>
+<script>
+function rand(min,max){return Math.round(Math.random()*(max-min)+min)}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+function getIntList(max){
+    var numbers = []
+    for(let i =1;i<=max; i++){
+        if((max%i) == 0){
+            numbers.push(i)
+        }
+    } return numbers; }
+
+function generateMath(){
+    num1 = rand(1, 100);
+    num2 = rand(1, 100);
+    add = getRandomInt(4);
+    if(add == 0){
+        num1 = rand(1, 100);
+        num2 = rand(1, 100-num1);
+        document.getElementById("math").style.display = 'block';
+        document.getElementById("math").innerHTML= " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = " ;
+    }else if(add == 1){
+        num1 = rand(1, 100);
+        num2 = rand(1, num1);
+        document.getElementById("math").style.display = 'block';
+        document.getElementById("math").innerHTML= " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = " ;
+    }else if(add == 2){
+        num1 = rand(1, 100);
+        num2 = rand(1, parseInt(100/num1));
+        document.getElementById("math").style.display = 'block';
+        document.getElementById("math").innerHTML= " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = " ;
+    }else{
+        num1 = rand(1, 100);
+        num2list = getIntList(num1);
+        console.log(num2list.length);
+        random_number = rand(0,num2list.length-1);
+        console.log(random_number)
+        num2 = num2list[getRandomInt(num2list.length-1)];
+        document.getElementById("math").style.display = 'block';
+        document.getElementById("math").innerHTML= " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = " ;
+    };
+<!--    document.getElementById("equ").innerHTML = '<input type="number" id="myNumber"> <button type="button" onclick="update()" id="myButton">Submit</button>'-->
+    setTimeout(generateMath, 40000);
+}
+
+function myfunc() {
+    console.log("The number is");
+    var input = document.getElementById('num').value;
+    console.log(input);
+}
+</script>
+{% endblock %}
+{% block content %}
+<body  onload="generateMath()">
+<div>
+
+</div>
+<div class="d-flex justify-content-center"><h5>Question1</h5></div>
+<br>
+
+
+
+<!--The exact question participants see  -->
+<!--Participants’ answer (not just whether they get the answer right or wrong, but also the answer itself) -->
+<!--How many questions they attempted-->
+<!--How long they spend on each question-->
+
+<!--<div><h5> {{round_number}} </h5></div>-->
+<div class="range-slider">
+    <label for="vol" style="padding-right:20px"><div class="d-flex p-2"><div class="align-self-center" style="color:black" id="math"></div><div id="equ"></div></div></label>
+    <input name='num2' style="width:80%" id='userinput' type="range" value="0" min="0" max="100" oninput="num.value = this.value">
+    <output id="num">0</output>
+</div>
+<br>
+<div class="d-flex bd-highlight mb-3">
+    <div class="p-2 bd-highlight"></div>
+    <div class="p-2 bd-highlight"></div>
+    <div class="ml-auto p-2 bd-highlight"><button class="otree-btn-next btn btn-primary" onclick="myfunc()">Submit</button></div>
+    <script>
+        function myfunc(){
+            console.log("The number is");
+            var input = document.getElementById('num').value;
+        }
+    </script>
+</div>
+</body>
+{% endblock %}
+
+

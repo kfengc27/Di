@@ -3,7 +3,8 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 class MyPage(Page):
-    pass
+    def is_displayed(self):
+        return self.player.get_adjusted_num_questions_left() == 1
 
 class ResultsWaitPage(WaitPage):
     pass
@@ -14,94 +15,21 @@ class Instruction(Page):
 class Results(Page):
     pass
 
-class Example(Page):
-    form_model = 'player'
-    form_fields = ['num1']
-
-class Train(Page):
-    pass
-
-class Slide5(Page):
+class Slide(Page):
     form_model = 'player'
     form_fields = ['num2']
-    timeout_seconds = 165
+    def is_displayed(self):
+        return self.player.get_adjusted_num_questions_left() > 0
 
-class Slide6(Page):
-    form_model = 'player'
-    form_fields = ['num3', 'num4']
+    def get_timeout_seconds(self):
+        pass
 
-class Slide7(Page):
-    pass
-
-class Slide8(Page):
-    form_model = 'player'
-    form_fields = ['a1', 'a2', 'a3', 'a4']
-    def error_message(self, values):
-        if values['a1'] == True and values['a2'] == True and values['a3'] == True and values['a4']  == False:
-            pass
-        else:
-            return 'Some of your answers are incorrect. Please review answers below and revise your response'
-
-class Slide8_1(Page):
-    pass
-
-class Slide9(Page):
-    timeout_seconds = 300
-    form_model = 'player'
-    form_fields = ['num5']
-
-class Slide13(Page):
-    pass
-
-class Slide14(Page):
-    timeout_seconds = 300
-    form_model = 'player'
-    form_fields = ['num6']
-
-class Slide16(Page):
-    pass
-
-class Slide17(Page):
-    pass
-
-class Slide18(Page):
-    pass
-
-
-class Slide19(Page):
-    pass
-
-class Slide20(Page):
-    timeout_seconds = 300
-    form_model = 'player'
-    form_fields = ['num7']
-    pass
-
-class Slide21(Page):
-    pass
-
-class Slide23(Page):
-    pass
-
-class Slide24(Page):
-    pass
-
-class Slide25(Page):
-    timeout_seconds = 300
-    form_model = 'player'
-    form_fields = ['num8']
-    pass
-
-class Slide27(Page):
-    pass
-
-class Page28(Page):
-    pass
-
-class Page29(Page):
-    pass
+    def vars_for_template(self):
+        return dict(
+            round_number = self.player.get_adjusted_num_questions_left()
+        )
 
 class Final(Page):
     pass
 
-page_sequence = [MyPage, Final]
+page_sequence = [MyPage, Slide]

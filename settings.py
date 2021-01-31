@@ -11,9 +11,10 @@ SESSION_CONFIGS = [
         name='Pilot_Test_For_MTurk',
         display_name="Pilot Test For MTurk",
         num_demo_participants=40,
-        app_sequence=['pilot']
+        app_sequence=['pilot'],
+        num_questions=60,
+        task_timeout_seconds = 300
     ),
-
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs

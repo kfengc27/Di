@@ -1,0 +1,137 @@
+:root {
+  --red-color: red;
+  --orange-color: orange;
+  --yellow-color: yellow;
+  --green-color: limegreen;
+  --blue-color: deepskyblue;
+  --purple-color: mediumpurple;
+  --pink-color: deeppink;
+}
+
+.grid-container {
+  display: grid;
+  background-color: lightgrey;
+  grid-template-columns: 2.5rem 2.5rem 2.5rem 2.5rem 2.5rem 2.5rem 2.5rem 2.5rem 2.5rem 2.5rem;
+  border: 1px solid black;
+  table-layout: fixed;
+  width: 25.125rem;
+  height: 20.125rem;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  width: 2.5rem;
+  height: 2rem;
+  font-size: 20px;
+  text-align: center;
+}
+.grid-item-highlight {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 0.4rem double black;
+  width: 2.5rem;
+  height: 2rem;
+  font-size: 20px;
+  text-align: center;
+}
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+table, th, td, .custom-button {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+th, td {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  text-align: center;
+
+}
+.button-td {
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+table tr th:nth-child(1){
+   width: 10%;
+ }
+table tr th:nth-child(4){
+   width: 3%;
+ }
+.custom-button {
+  color: white;
+  border-radius: 4px;
+  opacity: 0.8;
+  transition-duration: 0.2s;
+  font-size: 16px;
+}
+.custom-button:hover {
+  opacity: 1;
+}
+.add-button {
+  background-color: #4bbd69; /* Green */
+}
+.remove-button {
+  background-color: orangered; /* Orange red */
+}
+.progress-button {
+  background-color: dodgerblue; /* blue*/
+}
+.clear-td {
+  border-color: transparent;
+  padding-top: 0.25rem;
+}
+
+.button-left {
+  float: left;
+}
+.button-right {
+  float: right;
+}
+
+.otree-timer {
+    display: none;
+}
+
+.comprehension-input {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  max-width: 60px;
+  text-align: center;
+}
+.error-text {
+  display: none;
+  color: orangered;
+  margin-left: 1rem;
+}
+.success-text {
+  display: none;
+  color: #4bbd69;
+  margin-left: 1rem;
+}
+.page-header {
+  padding-top: 20px;
+}
+
+blink, .blink {
+  -webkit-animation: blink 1.5s step-end infinite;
+  -moz-animation: blink 1.5s step-end infinite;
+  -o-animation: blink 1.5s step-end infinite;
+  animation: blink 1.5s step-end infinite;
+}
+
+@-webkit-keyframes blink {
+  67% { color: orangered; background-color: lightgrey }
+}
+
+@-moz-keyframes blink {
+  67% { color: orangered; background-color: lightgrey }
+}
+
+@-o-keyframes blink {
+  67% { color: orangered; background-color: lightgrey }
+}
+
+@keyframes blink {
+  67% { color: orangered; background-color: lightgrey }
+}
