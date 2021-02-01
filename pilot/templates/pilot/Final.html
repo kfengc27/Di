@@ -6,10 +6,14 @@
 {% endblock %}
 
 {% block content %}
-<p>You have completed all the task in today’s session.</p>
-<p>Your total wage from period 2 to 5 are ___xxx___ Liras, this converts to ___(xxx/47.5)___ dollars.</p>
-You will also receive $5 show-up fee. Therefore, your total pay will be ___(xxx/47.5) +5___ dollars, and you will receive it in the form of an electronic gift card.
+<h3>Post-experiment Questionnaire</h3>
 <br>
+<p>Thank you for your participantion today. You are almost finished. We will conclude by asking you a few questions about your participation today as well as some demographic questions.</p>
+<br>
+{% formfield 'screen3_q1' %}
+{% formfield 'screen3_q2' %}
+{% formfield 'age' %}
+{% formfield 'gender' %}
 <br>
 <div class="d-flex bd-highlight mb-3">
     <div class="p-2 bd-highlight"></div>
