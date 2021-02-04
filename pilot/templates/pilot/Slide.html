@@ -44,7 +44,7 @@ function generateMath(){
         document.getElementById("math").style.display = 'block';
         document.getElementById("math").innerHTML= equation;
     }else{
-        num1 = rand(1, 100);
+        num1 = rand(1, 200);
         num2list = getIntList(num1);
 
         console.log(num2list.length);
@@ -73,7 +73,7 @@ function myfunc() {
 <div>
 
 </div>
-<div class="d-flex justify-content-center"><h5>Question 1</h5></div>
+<div class="d-flex justify-content-center"><h5>Question {{ round_number }}</h5></div>
 <br>
 <input type="hidden" name="equation" id="equation" />
 <input type="hidden" name="answer" id="answer" />
