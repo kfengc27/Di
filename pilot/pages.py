@@ -3,9 +3,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 class StartPage(Page):
-    # @staticmethod
-    def is_displayed(self):
-        return 1
+
 
     def before_next_page(player):
         participant = player.participant
