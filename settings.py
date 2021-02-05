@@ -9,7 +9,7 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='Pilot_Test_For_MTurk',
-        display_name="Pilot Test For MTurk",
+        display_name="Pilot For MTurk",
         num_demo_participants=40,
         app_sequence=['pilot'],
         num_questions=60,
