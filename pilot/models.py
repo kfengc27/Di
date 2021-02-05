@@ -43,9 +43,3 @@ class Player(BasePlayer):
     def adjusted_num_questions(self):
         self.round_number  = self.round_number - 1
 
-    def get_answer(self):
-        return self.answer
-
-    def get_equation(self):
-        return self.equation
-
