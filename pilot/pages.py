@@ -60,4 +60,4 @@ class Final(Page):
         else:
             return False
 
-page_sequence = [StartPage, Result, Final]
+page_sequence = [StartPage, Slide, Final]
