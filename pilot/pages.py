@@ -3,14 +3,16 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 class StartPage(Page):
-
+    # @staticmethod
+    def is_displayed(self):
+        return self.player.get_adjusted_num_questions_left() == 1
 
     def before_next_page(player):
         participant = player.participant
         import time
         # user has 5 minutes to complete as many pages as possible
         participant.vars['expiry'] = time.time() + 5*60
-        participant.vars['rounds'] = 60
+        participant.vars['rounds'] = 0
 
 
 class ResultsWaitPage(WaitPage):
