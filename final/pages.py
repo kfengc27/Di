@@ -20,4 +20,4 @@ class Final(Page):
     pass
 
 
-page_sequence = [Final, Results]
+page_sequence = [Final]

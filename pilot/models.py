@@ -32,6 +32,7 @@ class Player(BasePlayer):
     answer_check = models.StringField()
     round_number  = models.IntegerField(initial=60)
 
+
     def get_adjusted_num_questions_left(self):
         return self.round_number
 
