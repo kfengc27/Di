@@ -14,7 +14,6 @@ class StartPage(Page):
         participant.vars['expiry'] = time.time() + 5*60
         participant.vars['rounds'] = 0
 
-
 class ResultsWaitPage(WaitPage):
     pass
 
@@ -50,6 +49,8 @@ class Result(Page):
     pass
 
 class Final(Page):
+    form_model = 'player'
+    form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
 
     def is_displayed(self):
         import time
