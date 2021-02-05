@@ -23,26 +23,26 @@ class Instruction(Page):
 class Results(Page):
     pass
 
-# class Slide(Page):
-#     form_model = 'player'
-#     form_fields = ['equation', 'answer', 'answer_check']
-#     timer_text = 'Time left to complete this section:'
-#
-#     def is_displayed(player):
-#         import time
-#         if(( player.participant.vars['expiry'] - time.time() > 0 ) and ( player.participant.vars['rounds']  ) > 0 ):
-#             return True
-#
-#     def get_timeout_seconds(player):
-#         import time
-#         return player.participant.vars['expiry'] - time.time()
-#
-#     def vars_for_template(player):
-#         participant = player.participant
-#         num = 60 - player.participant.vars['rounds'] + 1
-#         player.participant.vars['rounds'] = player.participant.vars['rounds'] - 1
-#         return dict(
-#             round_number = num,
+class Slide(Page):
+    form_model = 'player'
+    form_fields = ['equation', 'answer', 'answer_check']
+    timer_text = 'Time left to complete this section:'
+
+    def is_displayed(player):
+        import time
+        if(( player.participant.vars['expiry'] - time.time() > 0 ) and ( player.participant.vars['rounds']  ) > 0 ):
+            return True
+
+    def get_timeout_seconds(player):
+        import time
+        return player.participant.vars['expiry'] - time.time()
+
+    def vars_for_template(player):
+        participant = player.participant
+        num = 60 - player.participant.vars['rounds'] + 1
+        player.participant.vars['rounds'] = player.participant.vars['rounds'] - 1
+        return dict(
+            round_number = num,
 
 class Results(Page):
     form_model = 'player'
@@ -55,7 +55,7 @@ class Results(Page):
         else:
             return False
 
-page_sequence = [StartPage, Results]
+page_sequence = [StartPage, Slide, Results]
 
 # form_model = 'player'
 # form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
