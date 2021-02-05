@@ -44,7 +44,7 @@ class Results(Page):
 #         return dict(
 #             round_number = num,
 
-class Result(Page):
+class Results(Page):
     form_model = 'player'
     form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
 
@@ -55,7 +55,7 @@ class Result(Page):
         else:
             return False
 
-page_sequence = [StartPage, Result]
+page_sequence = [StartPage, Results]
 
 # form_model = 'player'
 # form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
