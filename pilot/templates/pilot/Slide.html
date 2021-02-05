@@ -44,13 +44,18 @@ function generateMath(){
         document.getElementById("math").style.display = 'block';
         document.getElementById("math").innerHTML= equation;
     }else{
-        num1 = rand(1, 200);
-        num2list = getIntList(num1);
+        while(1){
+          num1 = rand(1, 200);
+          num2list = getIntList(num1);
+          console.log(num2list.length);
+          random_number = rand(0,num2list.length-1);
+          console.log(random_number)
+          num2 = num2list[getRandomInt(num2list.length-1)];
+           if((num1 / num2)<=100){
+            break
+           }
+        }
 
-        console.log(num2list.length);
-        random_number = rand(0,num2list.length-1);
-        console.log(random_number)
-        num2 = num2list[getRandomInt(num2list.length-1)];
         equation = " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = "
         document.getElementById("math").style.display = 'block';
         document.getElementById("math").innerHTML=  equation;
