@@ -5,7 +5,7 @@ from .models import Constants
 class StartPage(Page):
     # @staticmethod
     def is_displayed(self):
-        return self.player.get_adjusted_num_questions_left() == 1
+        return 1
 
     def before_next_page(player):
         participant = player.participant
@@ -24,27 +24,27 @@ class Instruction(Page):
 class Results(Page):
     pass
 
-class Slide(Page):
-    form_model = 'player'
-    form_fields = ['equation', 'answer', 'answer_check']
-    timer_text = 'Time left to complete this section:'
-
-    def is_displayed(player):
-        import time
-        if(( player.participant.vars['expiry'] - time.time() > 0 ) and ( player.participant.vars['rounds']  ) > 0 ):
-            return True
-
-    def get_timeout_seconds(player):
-        import time
-        return player.participant.vars['expiry'] - time.time()
-
-    def vars_for_template(player):
-        participant = player.participant
-        num = 60 - player.participant.vars['rounds'] + 1
-        player.participant.vars['rounds'] = player.participant.vars['rounds'] - 1
-        return dict(
-            round_number = num,
-        )
+# class Slide(Page):
+#     form_model = 'player'
+#     form_fields = ['equation', 'answer', 'answer_check']
+#     timer_text = 'Time left to complete this section:'
+#
+#     def is_displayed(player):
+#         import time
+#         if(( player.participant.vars['expiry'] - time.time() > 0 ) and ( player.participant.vars['rounds']  ) > 0 ):
+#             return True
+#
+#     def get_timeout_seconds(player):
+#         import time
+#         return player.participant.vars['expiry'] - time.time()
+#
+#     def vars_for_template(player):
+#         participant = player.participant
+#         num = 60 - player.participant.vars['rounds'] + 1
+#         player.participant.vars['rounds'] = player.participant.vars['rounds'] - 1
+#         return dict(
+#             round_number = num,
+#         )
 
 class Result(Page):
     pass
@@ -60,4 +60,4 @@ class Final(Page):
         else:
             return False
 
-page_sequence = [StartPage, Slide, Final]
+page_sequence = [StartPage, Final]
