@@ -43,7 +43,7 @@ class Slide(Page):
         player.participant.vars['rounds'] = player.participant.vars['rounds'] - 1
         return dict(
             round_number = num
-        }
+        )
 
 class Results(Page):
     form_model = 'player'
