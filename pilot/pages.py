@@ -5,7 +5,7 @@ from .models import Constants
 class StartPage(Page):
     # @staticmethod
     def is_displayed(self):
-        return True
+        return self.player.get_adjusted_num_questions_left() == 1
 
     def before_next_page(player):
         participant = player.participant
@@ -13,6 +13,7 @@ class StartPage(Page):
         # user has 5 minutes to complete as many pages as possible
         participant.vars['expiry'] = time.time() + 5*60
         participant.vars['rounds'] = 60
+
 
 class ResultsWaitPage(WaitPage):
     pass
@@ -45,9 +46,8 @@ class Slide(Page):
             round_number = num,
         )
 
-# class Result(Page):
-#     def is_displayed(self):
-#         return True
+class Result(Page):
+    pass
 
 class Final(Page):
     form_model = 'player'
@@ -60,4 +60,4 @@ class Final(Page):
         else:
             return False
 
-page_sequence = [StartPage, Slide, Final]
+page_sequence = [StartPage, Result, Final]
