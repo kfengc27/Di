@@ -15,6 +15,7 @@ class StartPage(Page):
         participant.vars['expiry'] = time.time() + 5*60
         participant.vars['rounds'] = 60
 
+
 class ResultsWaitPage(WaitPage):
     pass
 
@@ -31,25 +32,28 @@ class Slide(Page):
 
     def is_displayed(player):
         import time
-        if(player.participant.vars['expiry'] - time.time() >0 ):
+        if(( player.participant.vars['expiry'] - time.time() > 0 ) and ( player.participant.vars['rounds']  ) > 0 ):
             return True
 
     def get_timeout_seconds(player):
         import time
         return player.participant.vars['expiry'] - time.time()
 
-    def vars_for_template(self):
+    def vars_for_template(player):
+        participant = player.participant
+        num = 60 - player.participant.vars['rounds'] + 1
+        player.participant.vars['rounds'] = player.participant.vars['rounds'] - 1
         return dict(
-            round_number = self.player.get_adjusted_num_questions_left(),
+            round_number = num,
         )
-
-    def app_after_this_page(player, upcoming_apps):
-        print('upcoming_apps is', upcoming_apps)
-        if player.round_number == 0:
-            return "final"
 
 class Final(Page):
     form_model = 'player'
     form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
 
-page_sequence = [StartPage, Slide]
+    def is_displayed(player):
+        import time
+        if((player.participant.vars['expiry'] - time.time() <= 0)  or (player.participant.vars['rounds']  == 0)):
+            return True
+
+page_sequence = [StartPage, Slide, Final]
