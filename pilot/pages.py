@@ -48,7 +48,7 @@ class Results(Page):
 class Result(Page):
     pass
 
-class Final(Page):
+class Result(Page):
     form_model = 'player'
     form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
 
