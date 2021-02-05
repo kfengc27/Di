@@ -14,7 +14,6 @@ class StartPage(Page):
         participant.vars['expiry'] = time.time() + 5*60
         participant.vars['rounds'] = 60
 
-
 class ResultsWaitPage(WaitPage):
     pass
 
@@ -46,19 +45,19 @@ class Slide(Page):
             round_number = num,
         )
 
-class Result(Page):
-    pass
+# class Result(Page):
+#     def is_displayed(self):
+#         return True
 
-class last(Page):
+class Final(Page):
     form_model = 'player'
     form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
 
     def is_displayed(self):
-        return True
-        # import time
-        # if((self.player.participant.vars['expiry'] - time.time() <= 0)  or (self.player.participant.vars['rounds']  == 0)):
-        #     return True
-        # else:
-        #     return False
+        import time
+        if((self.player.participant.vars['expiry'] - time.time() <= 0)  or (self.player.participant.vars['rounds']  == 0)):
+            return True
+        else:
+            return False
 
-page_sequence = [StartPage, Result]
+page_sequence = [StartPage, Slide, Final]
