@@ -50,8 +50,6 @@ class Result(Page):
     pass
 
 class Final(Page):
-    form_model = 'player'
-    form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
 
     def is_displayed(self):
         import time
@@ -61,3 +59,6 @@ class Final(Page):
             return False
 
 page_sequence = [StartPage, Final]
+
+# form_model = 'player'
+# form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
