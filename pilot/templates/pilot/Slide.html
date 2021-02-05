@@ -91,8 +91,10 @@ result_answer = parseInt(input)
        console.log("Result Answer is", result_answer);
        console.log("Result is", result);
      if(result_answer == result){
+     document.getElementById('answer_check').value = 'True';
         console.log('True')
      }else{
+      document.getElementById('answer_check').value = 'False';
         console.log('False')
      }
 
@@ -108,7 +110,7 @@ result_answer = parseInt(input)
 <br>
 <input type="hidden" name="equation" id="equation" />
 <input type="hidden" name="answer" id="answer" />
-<!--<input type="hidden" name="answer_check" id="answer_check" />-->
+<input type="hidden" name="answer_check" id="answer_check" />
 
 <!--The exact question participants see  -->
 <!--Participants’ answer (not just whether they get the answer right or wrong, but also the answer itself) -->

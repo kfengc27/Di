@@ -26,7 +26,7 @@ class Results(Page):
 
 class Slide(Page):
     form_model = 'player'
-    form_fields = ['equation', 'answer']
+    form_fields = ['equation', 'answer', 'answer_check']
     timer_text = 'Time left to complete this section:'
 
     def is_displayed(player):
