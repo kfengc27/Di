@@ -43,10 +43,6 @@ class Results(Page):
 #         player.participant.vars['rounds'] = player.participant.vars['rounds'] - 1
 #         return dict(
 #             round_number = num,
-#         )
-
-class Result(Page):
-    pass
 
 class Result(Page):
     form_model = 'player'
@@ -59,7 +55,7 @@ class Result(Page):
         else:
             return False
 
-page_sequence = [StartPage, Final]
+page_sequence = [StartPage, Result]
 
 # form_model = 'player'
 # form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
