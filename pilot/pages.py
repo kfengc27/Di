@@ -5,9 +5,8 @@ from .models import Constants
 class StartPage(Page):
     # @staticmethod
     def is_displayed(self):
-        return self.player.get_adjusted_num_questions_left() == 1
+        return True
 
-    # @staticmethod
     def before_next_page(player):
         participant = player.participant
         import time
