@@ -43,6 +43,11 @@ class Slide(Page):
             round_number = self.player.get_adjusted_num_questions_left(),
         )
 
+    def app_after_this_page(player, upcoming_apps):
+        print('upcoming_apps is', upcoming_apps)
+        if player.round_number == 0:
+            return "final"
+
 class Final(Page):
     pass
 
