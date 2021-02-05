@@ -29,7 +29,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     equation = models.StringField()
     answer = models.StringField()
-
+    answer_check = models.BooleanField()
     round_number  = models.IntegerField(initial=60)
 
     def get_adjusted_num_questions_left(self):

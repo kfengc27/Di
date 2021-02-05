@@ -29,7 +29,6 @@ class Slide(Page):
     form_fields = ['equation', 'answer']
     timer_text = 'Time left to complete this section:'
 
-
     def is_displayed(player):
         import time
         if(player.participant.vars['expiry'] - time.time() >0 ):

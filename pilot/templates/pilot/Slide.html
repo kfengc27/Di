@@ -52,17 +52,15 @@ function generateMath(){
           console.log(random_number)
           num2 = num2list[getRandomInt(num2list.length-1)];
            if((num1 / num2)<=100){
-            break
+            break;
            }
         }
-
         equation = " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = "
         document.getElementById("math").style.display = 'block';
         document.getElementById("math").innerHTML=  equation;
     };
-    console.log(equation);
     document.getElementById('equation').value = equation;
-<!--    document.getElementById("equ").innerHTML = '<input type="number" id="myNumber"> <button type="button" onclick="update()" id="myButton">Submit</button>'-->
+
     setTimeout(generateMath, 40000);
 }
 
@@ -70,6 +68,34 @@ function myfunc() {
     console.log("The number is");
     var input = document.getElementById('num').value;
     document.getElementById('answer').value = input;
+    var equation = document.getElementById('equation').value;
+    console.log("Equation is ", equation.split(' '));
+    equation_list = equation.split(' ');
+    console.log(equation_list[2])
+    if(equation_list[2] == '+'){
+               result = parseInt(equation_list[1]) + parseInt(equation_list[3]);
+        result_answer = parseInt(input)
+
+    }else if(equation_list[2] == '-'){
+           result = parseInt(equation_list[1]) + parseInt(equation_list[3]);
+        result_answer = parseInt(input)
+
+    }else if(equation_list[2] == 'x'){
+           result = parseInt(equation_list[1]) * parseInt(equation_list[3]);
+result_answer = parseInt(input)
+
+    }else if(equation_list[2] == '/'){
+            result = parseInt(equation_list[1]) / parseInt(equation_list[3]);
+result_answer = parseInt(input)
+    }
+       console.log("Result Answer is", result_answer);
+       console.log("Result is", result);
+     if(result_answer == result){
+        console.log('True')
+     }else{
+        console.log('False')
+     }
+
 }
 </script>
 {% endblock %}
@@ -82,6 +108,7 @@ function myfunc() {
 <br>
 <input type="hidden" name="equation" id="equation" />
 <input type="hidden" name="answer" id="answer" />
+<!--<input type="hidden" name="answer_check" id="answer_check" />-->
 
 <!--The exact question participants see  -->
 <!--Participants’ answer (not just whether they get the answer right or wrong, but also the answer itself) -->
