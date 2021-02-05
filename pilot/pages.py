@@ -12,7 +12,7 @@ class StartPage(Page):
         import time
         # user has 5 minutes to complete as many pages as possible
         participant.vars['expiry'] = time.time() + 5*60
-        participant.vars['rounds'] = 0
+        participant.vars['rounds'] = 60
 
 class ResultsWaitPage(WaitPage):
     pass
