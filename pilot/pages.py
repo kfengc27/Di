@@ -47,6 +47,9 @@ class Slide(Page):
             round_number = num,
         )
 
+class Result(Page):
+    pass
+
 class last(Page):
     form_model = 'player'
     form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
@@ -59,4 +62,4 @@ class last(Page):
         # else:
         #     return False
 
-page_sequence = [StartPage, last]
+page_sequence = [StartPage, Result]
