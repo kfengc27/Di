@@ -55,5 +55,7 @@ class Final(Page):
         import time
         if((self.player.participant.vars['expiry'] - time.time() <= 0)  or (self.player.participant.vars['rounds']  == 0)):
             return True
+        else:
+            return False
 
 page_sequence = [StartPage, Slide, Final]
