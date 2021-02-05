@@ -52,10 +52,11 @@ class Final(Page):
     form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
 
     def is_displayed(self):
-        import time
-        if((self.player.participant.vars['expiry'] - time.time() <= 0)  or (self.player.participant.vars['rounds']  == 0)):
-            return True
-        else:
-            return False
+        return True
+        # import time
+        # if((self.player.participant.vars['expiry'] - time.time() <= 0)  or (self.player.participant.vars['rounds']  == 0)):
+        #     return True
+        # else:
+        #     return False
 
 page_sequence = [StartPage, Slide, Final]
