@@ -73,28 +73,25 @@ function myfunc() {
     equation_list = equation.split(' ');
     console.log(equation_list[2])
     if(equation_list[2] == '+'){
-               result = parseInt(equation_list[1]) + parseInt(equation_list[3]);
+        result = parseInt(equation_list[1]) + parseInt(equation_list[3]);
         result_answer = parseInt(input)
-
     }else if(equation_list[2] == '-'){
-           result = parseInt(equation_list[1]) + parseInt(equation_list[3]);
+        result = parseInt(equation_list[1]) - parseInt(equation_list[3]);
         result_answer = parseInt(input)
-
     }else if(equation_list[2] == 'x'){
-           result = parseInt(equation_list[1]) * parseInt(equation_list[3]);
-result_answer = parseInt(input)
-
+        result = parseInt(equation_list[1]) * parseInt(equation_list[3]);
+        result_answer = parseInt(input)
     }else if(equation_list[2] == '/'){
-            result = parseInt(equation_list[1]) / parseInt(equation_list[3]);
-result_answer = parseInt(input)
+        result = parseInt(equation_list[1]) / parseInt(equation_list[3]);
+        result_answer = parseInt(input)
     }
        console.log("Result Answer is", result_answer);
        console.log("Result is", result);
      if(result_answer == result){
-     document.getElementById('answer_check').value = '1';
+        document.getElementById('answer_check').value = '1';
         console.log('True')
      }else{
-      document.getElementById('answer_check').value = '0';
+        document.getElementById('answer_check').value = '0';
         console.log('False')
      }
 
