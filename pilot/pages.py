@@ -74,7 +74,15 @@ class screen4(Page):
             random_code = unique_code
         )
 
-page_sequence = [StartPage, Slide, Results, screen4]
+class Final(Page):
+    def is_displayed(self):
+        import time
+        if((self.player.participant.vars['expiry'] - time.time() <= 0)  or (self.player.participant.vars['rounds']  == 0)):
+            return True
+        else:
+            return False
+
+page_sequence = [StartPage, Slide, Results, screen4, Final]
 
 # form_model = 'player'
 # form_fields = ['screen3_q1', 'screen3_q2', 'age', 'gender']
