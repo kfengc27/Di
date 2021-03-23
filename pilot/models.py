@@ -18,7 +18,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'pilot'
     players_per_group = None
-    num_rounds = 60
+    num_rounds = 72
 
 class Subsession(BaseSubsession):
     pass
