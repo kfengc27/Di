@@ -18,51 +18,62 @@ function getIntList(max){
     for(let i =1;i<=max; i++){
         if((max%i) == 0){
             numbers.push(i)
+            }
         }
-    } return numbers; }
+    return numbers; 
+}
 
 function generateMath(){
-    num1 = rand(1, 100);
-    num2 = rand(1, 100);
-    add = getRandomInt(4);
-    if(add == 0){
-        num1 = rand(1, 100);
-        num2 = rand(1, 100-num1);
-        document.getElementById("math").style.display = 'block';
-        equation = " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = "
-        document.getElementById("math").innerHTML= equation ;
-    }else if(add == 1){
-        num1 = rand(1, 100);
-        num2 = rand(1, num1);
-        equation = " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = "
-        document.getElementById("math").style.display = 'block';
-        document.getElementById("math").innerHTML= equation ;
-    }else if(add == 2){
-        num1 = rand(1, 100);
-        num2 = rand(1, parseInt(100/num1));
-        equation = " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = "
-        document.getElementById("math").style.display = 'block';
-        document.getElementById("math").innerHTML= equation;
-    }else{
-        while(1){
-          num1 = rand(1, 200);
-          num2list = getIntList(num1);
-          console.log(num2list.length);
-          random_number = rand(0,num2list.length-1);
-          console.log(random_number)
-          num2 = num2list[getRandomInt(num2list.length-1)];
-           if((num1 / num2)<=100){
-            break;
-           }
-        }
-        equation = " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = "
-        document.getElementById("math").style.display = 'block';
-        document.getElementById("math").innerHTML=  equation;
-    };
-    document.getElementById('equation').value = equation;
+    list = ["15 + 23", "30 - 2", "26 x 3", "96 / 3", "52 + 20", "5 x 5", "23 x 4", "93 - 53", "68 / 17", "200 - 156", "12 x 7", "7 + 2", "150 / 3", "146 - 64", "63 + 27", "133 - 40", "63 + 27", "133 - 40", "98 / 14", "8 x 10", "5 x 9", "26 + 58", "125 / 5", "233 - 143", "67 + 11", "100 - 5", "7 x 13", "59 + 15", "320 / 8", "12 x 8", "12 x 8", "37 + 45", "1 x 98", "11 x 8", "19 + 33", "71 - 24", "14 x 7", "162 / 9", "7 x 3", "57 + 16", "13 x 6", "82 - 52", "65 / 5", "114 - 65", "5 + 70", "19 x 5", "84 / 7", "67 - 32", "24 x 3", "160 / 8", "23 + 7", "17 + 15", "159 - 61", "24 + 56", "15 x 6", "96 / 8", "2 x 20", "41 + 32", "5 x 17", "134 - 45", "84 / 12", "17 x 4", "18 + 2", "33 + 58", "560 / 7", "36 + 55", "71 - 38", "65 - 5", "288 / 144", "56 + 38", "20 x 4", "120 / 12", "73 - 37", "2 x 6"]
+    var input = document.getElementById("round_number")
 
+    index = parseInt(input.textContent);
+    document.getElementById('displayRound').value = index;
+
+    number = list[index].split(" ")
+    equation = number[0] + " " + number[1]+" "+ number[2] + " = "
+    document.getElementById("math").style.display = 'block';
+    document.getElementById("math").innerHTML= equation;
+
+    // if(add == 0){
+    //     num1 = rand(1, 100);
+    //     num2 = rand(1, 100-num1);
+    //     document.getElementById("math").style.display = 'block';
+    //     equation = " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = "
+    //     document.getElementById("math").innerHTML= equation ;
+    // }else if(add == 1){
+    //     num1 = rand(1, 100);
+    //     num2 = rand(1, num1);
+    //     equation = " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = "
+    //     document.getElementById("math").style.display = 'block';
+    //     document.getElementById("math").innerHTML= equation ;
+    // }else if(add == 2){
+    //     num1 = rand(1, 100);
+    //     num2 = rand(1, parseInt(100/num1));
+    //     equation = " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = "
+    //     document.getElementById("math").style.display = 'block';
+    //     document.getElementById("math").innerHTML= equation;
+    // }else{
+    //     while(1){
+    //       num1 = rand(1, 200);
+    //       num2list = getIntList(num1);
+    //       console.log(num2list.length);
+    //       random_number = rand(0,num2list.length-1);
+    //       console.log(random_number)
+    //       num2 = num2list[getRandomInt(num2list.length-1)];
+    //       if((num1 / num2)<=100){
+    //         break;
+    //       }
+    //     }
+    //     equation = " " + num1 + " " + ["+", "-","x","/"][add]+" "+num2 + " = "
+    //     document.getElementById("math").style.display = 'block';
+    //     document.getElementById("math").innerHTML=  equation;
+    // };
+    
+    document.getElementById('equation').value = equation;
     setTimeout(generateMath, 40000);
 }
+
 
 function myfunc() {
     console.log("The number is");
@@ -71,50 +82,48 @@ function myfunc() {
     var equation = document.getElementById('equation').value;
     console.log("Equation is ", equation.split(' '));
     equation_list = equation.split(' ');
-    console.log(equation_list[2])
-    if(equation_list[2] == '+'){
-        result = parseInt(equation_list[1]) + parseInt(equation_list[3]);
+    console.log(equation_list[1])
+    console.log(equation_list[0])
+    if(equation_list[1] == '+'){
+        result = parseInt(equation_list[0]) + parseInt(equation_list[2]);
         result_answer = parseInt(input)
-    }else if(equation_list[2] == '-'){
-        result = parseInt(equation_list[1]) - parseInt(equation_list[3]);
+    }else if(equation_list[1] == '-'){
+        result = parseInt(equation_list[0]) - parseInt(equation_list[2]);
         result_answer = parseInt(input)
-    }else if(equation_list[2] == 'x'){
-        result = parseInt(equation_list[1]) * parseInt(equation_list[3]);
+    }else if(equation_list[1] == 'x'){
+        result = parseInt(equation_list[0]) * parseInt(equation_list[2]);
         result_answer = parseInt(input)
-    }else if(equation_list[2] == '/'){
-        result = parseInt(equation_list[1]) / parseInt(equation_list[3]);
+    }else if(equation_list[1] == '/'){
+        result = parseInt(equation_list[0]) / parseInt(equation_list[2]);
         result_answer = parseInt(input)
     }
-       console.log("Result Answer is", result_answer);
-       console.log("Result is", result);
-     if(result_answer == result){
+    if(result_answer == result){
         document.getElementById('answer_check').value = '1';
         console.log('True')
-     }else{
+    }else{
         document.getElementById('answer_check').value = '0';
         console.log('False')
-     }
-
+    }
 }
 </script>
 {% endblock %}
 {% block content %}
 <body  onload="generateMath()">
 <div>
-
 </div>
-<div class="d-flex justify-content-center"><h5>Question {{ round_number }}</h5></div>
+<div class="d-flex justify-content-center"><h5>Question <nobr id="round_number">{{ round_number }}</nobr></h5></div>
 <br>
 <input type="hidden" name="equation" id="equation" />
-<input type="hidden" name="answer" id="answer" />
+<input type="hidden" name="answer" id="answer"/>
 <input type="hidden" name="answer_check" id="answer_check" />
+<input type="hidden" name="displayRound" id="displayRound" />
 
 <!--The exact question participants see  -->
 <!--Participants’ answer (not just whether they get the answer right or wrong, but also the answer itself) -->
 <!--How many questions they attempted-->
 <!--How long they spend on each question-->
-
 <!--<div><h5> {{round_number}} </h5></div>-->
+
 <div class="range-slider">
     <label for="vol" style="padding-right:20px"><div class="d-flex p-2"><div class="align-self-center" style="color:black" id="math"></div><div id="equ"></div></div></label>
     <input name='num2' style="width:80%" id='userinput' type="range" value="0" min="0" max="100" oninput="num.value = this.value">
@@ -125,9 +134,6 @@ function myfunc() {
     <div class="p-2 bd-highlight"></div>
     <div class="p-2 bd-highlight"></div>
     <div class="ml-auto p-2 bd-highlight"><button class="otree-btn-next btn btn-primary" onclick="myfunc()">Submit</button></div>
-
 </div>
 </body>
 {% endblock %}
-
-

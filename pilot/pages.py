@@ -12,7 +12,7 @@ class StartPage(Page):
         import time
         # user has 5 minutes to complete as many pages as possible
         participant.vars['expiry'] = time.time() + 5*60
-        participant.vars['rounds'] = 60
+        participant.vars['rounds'] = 72
 
 class ResultsWaitPage(WaitPage):
     pass
@@ -25,7 +25,7 @@ class Results(Page):
 
 class Slide(Page):
     form_model = 'player'
-    form_fields = ['equation', 'answer', 'answer_check']
+    form_fields = ['equation', 'answer', 'answer_check', 'displayRound']
     timer_text = 'Time left to complete this section:'
 
     def is_displayed(player):
@@ -39,7 +39,8 @@ class Slide(Page):
 
     def vars_for_template(player):
         participant = player.participant
-        num = 60 - player.participant.vars['rounds'] + 1
+        num = 72 - player.participant.vars['rounds'] + 1
+
         player.participant.vars['rounds'] = player.participant.vars['rounds'] - 1
         return dict(
             round_number = num
