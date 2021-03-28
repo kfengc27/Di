@@ -30,7 +30,7 @@ class Slide(Page):
 
     def is_displayed(player):
         import time
-        if(( player.participant.vars['expiry'] - time.time() > 0 ) and ( player.participant.vars['rounds']  ) > 0 ):
+        if(( player.participant.vars['expiry'] - time.time() > 0 ) and ( player.participant.vars['rounds'] >= 0 )):
             return True
 
     def get_timeout_seconds(player):
@@ -40,7 +40,6 @@ class Slide(Page):
     def vars_for_template(player):
         participant = player.participant
         num = 72 - player.participant.vars['rounds'] + 1
-
         player.participant.vars['rounds'] = player.participant.vars['rounds'] - 1
         return dict(
             round_number = num
